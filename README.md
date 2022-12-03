@@ -1,0 +1,2 @@
+# nvimux
+nvim + tmux config
