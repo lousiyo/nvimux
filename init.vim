@@ -10,8 +10,8 @@ set hlsearch incsearch
 set termguicolors
 
 "默认关闭鼠标，方便Terminal下操作
-set mouse-=a
-
+"set mouse-=a
+set mouse=
 " With a map leader it's possible to do extra key combinations
 let mapleader=","
 " let maplocalleader="\\"
@@ -43,6 +43,7 @@ Plug 'christoomey/vim-tmux-navigator'
 Plug 'ryanoasis/vim-devicons'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install' }
 Plug 'nvim-lua/plenary.nvim'
+Plug 'CRAG666/code_runner.nvim'
 Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.0' }
 Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
@@ -50,6 +51,7 @@ Plug 'nvim-tree/nvim-web-devicons' " optional, for file icons
 Plug 'nvim-tree/nvim-tree.lua'
 Plug 'bronson/vim-trailing-whitespace'
 Plug 'Yggdroot/indentLine'
+Plug 'voldikss/vim-floaterm'
 call plug#end()
 
 colorscheme gruvbox
