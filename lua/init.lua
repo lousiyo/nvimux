@@ -109,7 +109,7 @@ require('code_runner').setup({
   filetype = {
 		java = "cd $dir && javac $fileName && java $fileNameWithoutExt",
 		python = "python3 -u",
-		cpp = "cd $dir && clang++ -std=c++20 $fileName -o $dir/$fileNameWithoutExt && $dir/$fileNameWithoutExt"
+		cpp = "cd $dir && clang++ -Wall -std=c++0x $fileName -o $dir/$fileNameWithoutExt && $dir/$fileNameWithoutExt"
 	},
 })
 vim.keymap.set('n', '<leader>r', ':RunCode<CR>', { noremap = true, silent = false })

@@ -132,7 +132,7 @@ set sidescroll=1
 set sidescrolloff=10
 set virtualedit+=block
 set lazyredraw
-set list
+set nolist
 set listchars=tab:▸\ ,eol:¬,extends:❯,precedes:❮
 set splitbelow
 set splitright
@@ -371,8 +371,11 @@ noremap <silent> <c-l> :<C-U>TmuxNavigateRight<cr>
 " nvim tree
 nnoremap <leader>n :NvimTreeFocus<CR>
 
+" floaterm
+" " Configuration example
+let g:floaterm_keymap_new    = '<leader>sh'
 " indentLine
-let g:indentLine_setColors = 0
+let g:indentLine_setColors = 1
 
 " telescope
 " Find files using Telescope command-line sugar.
