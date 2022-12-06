@@ -51,7 +51,6 @@ Plug 'nvim-tree/nvim-web-devicons' " optional, for file icons
 Plug 'nvim-tree/nvim-tree.lua'
 Plug 'bronson/vim-trailing-whitespace'
 Plug 'Yggdroot/indentLine'
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'voldikss/vim-floaterm'
 if has('nvim')
   function! UpdateRemotePlugins(...)
@@ -68,6 +67,8 @@ else
   Plug 'roxma/nvim-yarp'
   Plug 'roxma/vim-hug-neovim-rpc'
 endif
+Plug 'tpope/vim-repeat'
+Plug 'ggandor/lightspeed.nvim'
 call plug#end()
 
 colorscheme gruvbox
@@ -404,39 +405,24 @@ nnoremap <leader>fs <cmd>Telescope grep_string<cr>
 " wilder.vim
 " " Key bindings can be changed, see below
 call wilder#setup({'modes': [':', '/', '?']})
-" 'highlighter' : applies highlighting to the candidates
-
 call wilder#set_option('pipeline', [
       \   wilder#branch(
-      \     wilder#cmdline_pipeline({
-      \       'fuzzy': 1,
-      \       'set_pcre2_pattern': 1,
-      \     }),
-      \     wilder#python_search_pipeline({
-      \       'pattern': 'fuzzy',
-      \     }),
+      \     wilder#cmdline_pipeline(),
+      \     wilder#search_pipeline(),
       \   ),
       \ ])
-let s:highlighters = [
-        \ wilder#pcre2_highlighter(),
-        \ wilder#basic_highlighter(),
-        \ ]
-call wilder#set_option('renderer', wilder#renderer_mux({
-      \ ':': wilder#popupmenu_renderer({
-      \   'highlighter': s:highlighters,
-      \ }),
-      \ '/': wilder#wildmenu_renderer({
-      \   'highlighter': s:highlighters,
-      \ }),
-      \ }))
-call wilder#set_option('renderer', wilder#popupmenu_renderer({
-      \ 'pumblend': 20,
-      \ }))
-call wilder#set_option('renderer', wilder#popupmenu_renderer(wilder#popupmenu_border_theme({
-      \ 'highlights': {
-      \   'border': 'Normal',
-      \ },
-      \ 'border': 'rounded',
-      \ })))
+
+"call wilder#set_option('renderer', wilder#wildmenu_renderer({
+"      \ 'highlighter': wilder#basic_highlighter(),
+"      \ }))
+" call wilder#set_option('renderer', wilder#popupmenu_renderer({
+"       \ 'pumblend': 20,
+"       \ }))
+""call wilder#set_option('renderer', wilder#popupmenu_renderer(wilder#popupmenu_border_theme({
+""      \ 'highlights': {
+""      \   'border': 'Normal',
+""      \ },
+""      \ 'border': 'rounded',
+""      \ })))
 " source lua file
 :luafile ~/.config/nvim/lua/init.lua
