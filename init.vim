@@ -3,8 +3,7 @@
 set nocompatible
 
 " allow backspacing over everything in insert mode
-set backspace=indent,eol,start
-
+set backspace=indent,start
 syntax on
 set hlsearch incsearch
 set termguicolors
@@ -14,7 +13,6 @@ set termguicolors
 set mouse=
 " With a map leader it's possible to do extra key combinations
 let mapleader=","
-" let maplocalleader="\\"
 
 set cc=80
 " edit vimrc file quicklly
@@ -25,15 +23,6 @@ nnoremap <leader>sv :source $HOME/.config/nvim/init.vim<cr>
 inoremap jk <esc>
 
 call plug#begin()
-" The default plugin directory will be as follows:
-"   - Vim (Linux/macOS): '~/.vim/plugged'
-"   - Vim (Windows): '~/vimfiles/plugged'
-"   - Neovim (Linux/macOS/Windows): stdpath('data') . '/plugged'
-" You can specify a custom plugin directory by passing it as the argument
-"   - e.g. `call plug#begin('~/.vim/plugged')`
-"   - Avoid using standard Vim directory names like 'plugin'
-" Plug 'https://github.com/junegunn/vim-github-dashboard.git'
-" On-demand loading
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'jiangmiao/auto-pairs'
 Plug 'gruvbox-community/gruvbox'
@@ -47,6 +36,7 @@ Plug 'CRAG666/code_runner.nvim'
 Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.0' }
 Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'nvim-treesitter/nvim-treesitter-context'
 Plug 'nvim-tree/nvim-web-devicons' " optional, for file icons
 Plug 'nvim-tree/nvim-tree.lua'
 Plug 'bronson/vim-trailing-whitespace'
@@ -69,6 +59,7 @@ else
 endif
 Plug 'tpope/vim-repeat'
 Plug 'ggandor/lightspeed.nvim'
+Plug 'thaerkh/vim-workspace'
 call plug#end()
 
 colorscheme gruvbox
@@ -123,7 +114,6 @@ endif " has("autocmd") ------}}}
 set history=1024
 set number                                       " 显示行号
 set autoread                                     " 文件在vim之外修改过，自动重新读入
-" set showbreak=↪                                  " 显示换行符
 set completeopt=longest,menu                     " 更好的insert模式自动完成
 set modeline                                     " 允许被编辑的文件以注释的形式设置vim选项
 set hidden                                       " switching buffers without saving
@@ -187,6 +177,11 @@ map tn :tabn<cr>
 map tp :tabp<cr>
 map tt :tabnew<cr>
 map ts :tab split<cr>
+
+" buffer
+nnoremap <leader>q :bdel<cr>
+nnoremap <leader>h :bnext<cr>
+nnoremap <leader>l :bpre<cr>
 
 " set text wrapping toggles
 nmap <silent> <leader>tw :set invwrap<CR>:set wrap?<CR>
@@ -412,17 +407,9 @@ call wilder#set_option('pipeline', [
       \   ),
       \ ])
 
-"call wilder#set_option('renderer', wilder#wildmenu_renderer({
-"      \ 'highlighter': wilder#basic_highlighter(),
-"      \ }))
-" call wilder#set_option('renderer', wilder#popupmenu_renderer({
-"       \ 'pumblend': 20,
-"       \ }))
-""call wilder#set_option('renderer', wilder#popupmenu_renderer(wilder#popupmenu_border_theme({
-""      \ 'highlights': {
-""      \   'border': 'Normal',
-""      \ },
-""      \ 'border': 'rounded',
-""      \ })))
+" vim workspace
+let g:workspace_autocreate = 1
+let g:workspace_session_name = '.session.vim'
+
 " source lua file
 :luafile ~/.config/nvim/lua/init.lua
