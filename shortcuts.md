@@ -31,3 +31,11 @@
 * gd //go to define
 * <c-o> // 回退
 
+* prefix + q //退出当前buffer
+* prefix + h //上一个buffer
+* prefix + l //下一个buffer
+
+* tt //new tab
+* tn // next tab
+* tp // pre tab
+
