@@ -179,7 +179,7 @@ map tt :tabnew<cr>
 map ts :tab split<cr>
 
 " buffer
-nnoremap <leader>q :bdel<cr>
+nnoremap <leader>q :bd<cr>
 nnoremap <leader>h :bnext<cr>
 nnoremap <leader>l :bpre<cr>
 
