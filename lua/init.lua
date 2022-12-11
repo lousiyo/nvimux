@@ -56,6 +56,7 @@ require("nvim-tree").setup()
 -- OR setup with some options
 require("nvim-tree").setup({
   sort_by = "case_sensitive",
+  hijack_cursor = true,
   view = {
     adaptive_size = true,
     mappings = {
@@ -79,7 +80,7 @@ require('code_runner').setup({
   -- Focus on runner window(only works on toggle, term and tab mode)
   focus = true,
   -- startinsert (see ':h inserting-ex')
-  startinsert = false,
+  startinsert = true,
   term = {
     --  Position to open the terminal, this option is ignored if mode is tab
     position = "bot",
@@ -88,7 +89,7 @@ require('code_runner').setup({
   },
   float = {
     -- Key that close the code_runner floating window
-    close_key = '<ESC>',
+    close_key = 'q',
     -- Window border (see ':h nvim_open_win')
     border = "none",
 
@@ -109,7 +110,8 @@ require('code_runner').setup({
   filetype = {
 		java = "cd $dir && javac $fileName && java $fileNameWithoutExt",
 		python = "python3 -u",
-		cpp = "cd $dir && clang++ -Wall -std=c++0x $fileName -o $dir/$fileNameWithoutExt && $dir/$fileNameWithoutExt"
+		cpp = "cd $dir && clang++ -Wall -std=c++0x $fileName -o $dir/$fileNameWithoutExt && $dir/$fileNameWithoutExt",
+		c = "cd $dir && clang -Wall -std=c11 $fileName -o $dir/$fileNameWithoutExt && $dir/$fileNameWithoutExt"
 	},
 })
 vim.keymap.set('n', '<leader>r', ':RunCode<CR>', { noremap = true, silent = false })

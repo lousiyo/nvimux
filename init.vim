@@ -59,7 +59,7 @@ else
 endif
 Plug 'tpope/vim-repeat'
 Plug 'ggandor/lightspeed.nvim'
-Plug 'thaerkh/vim-workspace'
+" Plug 'thaerkh/vim-workspace'
 call plug#end()
 
 colorscheme gruvbox
@@ -179,9 +179,9 @@ map tt :tabnew<cr>
 map ts :tab split<cr>
 
 " buffer
-nnoremap <leader>q :bd<cr>
-nnoremap <leader>h :bnext<cr>
-nnoremap <leader>l :bpre<cr>
+nnoremap <leader>q :bw<cr>
+nnoremap <leader>h :bpre<cr>
+nnoremap <leader>l :bnext<cr>
 
 " set text wrapping toggles
 nmap <silent> <leader>tw :set invwrap<CR>:set wrap?<CR>
@@ -408,8 +408,9 @@ call wilder#set_option('pipeline', [
       \ ])
 
 " vim workspace
-let g:workspace_autocreate = 1
-let g:workspace_session_name = '.session.vim'
-
+" let g:workspace_autocreate = 1
+" let g:workspace_session_name = '.session.vim'
+" let g:workspace_session_disable_on_args = 1
+" let g:workspace_autosave_always = 1
 " source lua file
 :luafile ~/.config/nvim/lua/init.lua
