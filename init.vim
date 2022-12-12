@@ -3,8 +3,9 @@
 set nocompatible
 
 " allow backspacing over everything in insert mode
-set backspace=indent,start
+set backspace=indent,start,eol
 syntax on
+
 set hlsearch incsearch
 set termguicolors
 
@@ -59,7 +60,8 @@ else
 endif
 Plug 'tpope/vim-repeat'
 Plug 'ggandor/lightspeed.nvim'
-" Plug 'thaerkh/vim-workspace'
+Plug 'Shatur/neovim-session-manager'
+Plug 'goolord/alpha-nvim'
 call plug#end()
 
 colorscheme gruvbox
