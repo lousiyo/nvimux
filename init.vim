@@ -235,12 +235,19 @@ set signcolumn=yes
 " no select by `"suggest.noselect": true` in your configuration file.
 " NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
 " other plugin before putting this into your config.
+"inoremap <silent><expr> <TAB>
+"      \ coc#pum#visible() ? coc#pum#next(1) :
+"      \ CheckBackspace() ? "\<Tab>" :
+"      \ coc#refresh()
 inoremap <silent><expr> <TAB>
-      \ coc#pum#visible() ? coc#pum#next(1) :
-      \ CheckBackspace() ? "\<Tab>" :
+      \ coc#pum#visible() ? coc#_select_confirm() :
+      \ coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
+      \ CheckBackspace() ? "\<TAB>" :
       \ coc#refresh()
 inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
-
+let g:coc_snippet_next = '<tab>'
+call coc#config("snippets.ultisnips.directories", ['~/.config/nvim/ultisnips'])
+xmap <leader>x  <Plug>(coc-convert-snippet)
 " Make <CR> to accept selected completion item or notify coc.nvim to format
 " <C-g>u breaks current undo, please make your own choice.
 inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm()
@@ -400,6 +407,8 @@ nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 nnoremap <leader>fs <cmd>Telescope grep_string<cr>
 
 " wilder.vim
+" Key bindings can be changed, see below
+call wilder#setup({'modes': [':', '/', '?']})
 " Neovim or Vim with yarp
 call wilder#set_option('pipeline', [
       \   wilder#branch(
@@ -410,7 +419,7 @@ call wilder#set_option('pipeline', [
 
 
 " call wilder#set_option('renderer', wilder#popupmenu_renderer())
-call wilder#set_option('renderer', wilder#wildmenu_renderer())
+" call wilder#set_option('renderer', wilder#wildmenu_renderer())
 call wilder#set_option('renderer', wilder#wildmenu_renderer(
       \ wilder#wildmenu_airline_theme({
       \   'highlights': {},
