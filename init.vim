@@ -40,7 +40,7 @@ Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'nvim-treesitter/nvim-treesitter-context'
 Plug 'nvim-tree/nvim-web-devicons' " optional, for file icons
 Plug 'nvim-tree/nvim-tree.lua'
-Plug 'bronson/vim-trailing-whitespace'
+Plug 'ntpeters/vim-better-whitespace'
 Plug 'Yggdroot/indentLine'
 Plug 'voldikss/vim-floaterm'
 if has('nvim')
@@ -393,6 +393,12 @@ noremap <silent> <c-l> :<C-U>TmuxNavigateRight<cr>
 " nvim tree
 nnoremap <leader>n :NvimTreeFocus<CR>
 
+" vim better whitespace
+let g:better_whitespace_enabled=1
+let g:strip_whitespace_on_save=1
+let g:strip_whitelines_at_eof=1
+let g:show_spaces_that_precede_tabs=1
+let g:better_whitespace_filetypes_blacklist=['diff','git','gitcommit','markdown']
 " floaterm
 " " Configuration example
 let g:floaterm_keymap_new    = '<leader>sh'
