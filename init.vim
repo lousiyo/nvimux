@@ -400,19 +400,23 @@ nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 nnoremap <leader>fs <cmd>Telescope grep_string<cr>
 
 " wilder.vim
-" " Key bindings can be changed, see below
-call wilder#setup({'modes': [':', '/', '?']})
+" Neovim or Vim with yarp
 call wilder#set_option('pipeline', [
       \   wilder#branch(
-      \     wilder#cmdline_pipeline(),
-      \     wilder#search_pipeline(),
+      \     wilder#cmdline_pipeline({'language': has('nvim') ? 'python' : 'vim'}),
+      \     wilder#python_search_pipeline(),
       \   ),
       \ ])
 
-" vim workspace
-" let g:workspace_autocreate = 1
-" let g:workspace_session_name = '.session.vim'
-" let g:workspace_session_disable_on_args = 1
-" let g:workspace_autosave_always = 1
+
+" call wilder#set_option('renderer', wilder#popupmenu_renderer())
+call wilder#set_option('renderer', wilder#wildmenu_renderer())
+call wilder#set_option('renderer', wilder#wildmenu_renderer(
+      \ wilder#wildmenu_airline_theme({
+      \   'highlights': {},
+      \   'highlighter': wilder#basic_highlighter(),
+      \   'separator': ' · ',
+      \ })))
+
 " source lua file
 :luafile ~/.config/nvim/lua/init.lua
