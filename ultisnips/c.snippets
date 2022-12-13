@@ -10,7 +10,7 @@ def printf_expand_args(snip):
 	This will look how many placeholders printf has and adds the separated commas
 	at the end.
 	"""
-	
+
 	# now add so many "," as much as the amount of placeholders
 	amount_placeholders = snip.tabstops[1].current_text.count("%")
 
@@ -19,14 +19,14 @@ def printf_expand_args(snip):
 	# Add the amount of tabstops
 	for placeholder_index in range(3, amount_placeholders + 3):
 		output += f", ${placeholder_index}"
-	
+
 	# convert them into tabstops
 	snip.expand_anon(output)
 
 endglobal
 
 # ==============
-# Snippets 
+# Snippets
 # ==============
 priority -50
 
@@ -80,7 +80,7 @@ for (${1:var}; ${2:condition}; `!p
 if len(t[1]) > 0:
 	snip.rv = t[1].split('=')[0].split()[-1]
 `++) {
-	
+
 	$0
 } /* for ($1; $2; `!p if len(t[1]) > 0: snip.rv = t[1].split('=')[0].split()[-1]`++) */
 endsnippet
@@ -154,19 +154,19 @@ snippet head "File Header" b
 /******************************************************************************
 * File:             `!p snip.rv = fn`
 *
-* Author:           ${2}  
-* Created:          `date +%m/%d/%y` 
+* Author:           ${2}
+* Created:          `date +%m/%d/%y`
 * Description:      ${4:${VISUAL}}
 *****************************************************************************/
 ${0}
 endsnippet
 
 post_jump "if snip.tabstop == 0 : split_line(snip.tabstops[4].current_text)"
-snippet func "Function Header" 
+snippet func "Function Header"
 /******************************************************************************
 * Function:         $1
 * Description:      ${4:${VISUAL}}
-* Where:`!p 
+* Where:`!p
 snip.rv = ""
 snip >> 2
 

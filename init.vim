@@ -240,14 +240,15 @@ set signcolumn=yes
 "      \ CheckBackspace() ? "\<Tab>" :
 "      \ coc#refresh()
 inoremap <silent><expr> <TAB>
-      \ coc#pum#visible() ? coc#_select_confirm() :
+      \ coc#pum#visible() ? coc#pum#next(1) :
       \ coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
       \ CheckBackspace() ? "\<TAB>" :
       \ coc#refresh()
 inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
-let g:coc_snippet_next = '<tab>'
 call coc#config("snippets.ultisnips.directories", ['~/.config/nvim/ultisnips'])
 xmap <leader>x  <Plug>(coc-convert-snippet)
+let g:coc_snippet_next = '<tab>'
+
 " Make <CR> to accept selected completion item or notify coc.nvim to format
 " <C-g>u breaks current undo, please make your own choice.
 inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm()
