@@ -62,6 +62,7 @@ Plug 'tpope/vim-repeat'
 Plug 'ggandor/lightspeed.nvim'
 Plug 'Shatur/neovim-session-manager'
 Plug 'goolord/alpha-nvim'
+Plug 'tpope/vim-commentary'
 call plug#end()
 
 colorscheme gruvbox
