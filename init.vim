@@ -213,7 +213,7 @@ let $LANG='en_US.UTF-8'
 
 " airline
 let g:airline#extensions#tabline#enabled = 1
-let g:airline_theme='angr'
+let g:airline_theme='google_dark'
 let g:airline_powerline_fonts = 1
 
 " coc.nvim configuration
