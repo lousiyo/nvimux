@@ -43,6 +43,12 @@ Plug 'nvim-tree/nvim-tree.lua'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'Yggdroot/indentLine'
 Plug 'voldikss/vim-floaterm'
+Plug 'ap/vim-css-color'
+Plug 'prettier/vim-prettier', {
+  \ 'do': 'yarn install --frozen-lockfile --production',
+  \ 'branch': 'release/0.x'
+  \ }
+
 if has('nvim')
   function! UpdateRemotePlugins(...)
     " Needed to refresh runtime files
