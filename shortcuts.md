@@ -28,15 +28,22 @@
 * prefix + fh //搜索帮助
 * prefix + fg //live grep
 
+### coc
 * <c-j> //代码补全后跳转
 * gd //go to define
 * <c-o> // 回退
 
+### buffer
 * prefix + q //退出当前buffer
 * prefix + h //上一个buffer
 * prefix + l //下一个buffer
 
+### tab
 * tt //new tab
 * tn // next tab
 * tp // pre tab
+
+### flowterm
+* prefix + sh //打开/关闭flowterm
+* prefix + ft //新建flowterm
 

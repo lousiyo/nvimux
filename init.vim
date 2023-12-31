@@ -34,7 +34,7 @@ Plug 'ryanoasis/vim-devicons'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install' }
 Plug 'nvim-lua/plenary.nvim'
 Plug 'CRAG666/code_runner.nvim'
-Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.0' }
+Plug 'nvim-telescope/telescope.nvim'
 Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'nvim-treesitter/nvim-treesitter-context'
@@ -48,6 +48,7 @@ Plug 'prettier/vim-prettier', {
   \ 'do': 'yarn install --frozen-lockfile --production',
   \ 'branch': 'release/0.x'
   \ }
+Plug 'Exafunction/codeium.vim', { 'branch': 'main' }
 
 if has('nvim')
   function! UpdateRemotePlugins(...)
@@ -408,7 +409,8 @@ let g:show_spaces_that_precede_tabs=1
 let g:better_whitespace_filetypes_blacklist=['diff','git','gitcommit','markdown']
 " floaterm
 " " Configuration example
-let g:floaterm_keymap_new    = '<leader>sh'
+let g:floaterm_keymap_toggle = '<leader>sh'
+let g:floaterm_keymap_new = '<Leader>ft'
 " indentLine
 let g:indentLine_setColors = 1
 
