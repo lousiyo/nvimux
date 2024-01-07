@@ -26,6 +26,7 @@ inoremap jk <esc>
 call plug#begin()
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'jiangmiao/auto-pairs'
+Plug 'folke/tokyonight.nvim'
 Plug 'gruvbox-community/gruvbox'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -70,9 +71,16 @@ Plug 'ggandor/lightspeed.nvim'
 Plug 'Shatur/neovim-session-manager'
 Plug 'goolord/alpha-nvim'
 Plug 'tpope/vim-commentary'
+Plug 'folke/trouble.nvim'
 call plug#end()
 
 colorscheme gruvbox
+
+" There are also colorschemes for the different styles.
+" colorscheme tokyonight-night
+" colorscheme tokyonight-storm
+" colorscheme tokyonight-day
+" colorscheme tokyonight-moon
 
 " operation map
 onoremap p i(
